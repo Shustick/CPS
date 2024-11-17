@@ -1,0 +1,5 @@
+import '../scss/style.scss'
+import './swiper'
+import './mobileMenu'
+import './modalFeedback'
+import './modalCall'

@@ -1,0 +1,56 @@
+.services__content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  font-size: $font-middle;
+  letter-spacing: 0.2px;
+  text-align: left;
+}
+
+.services__text {
+  display: flex;
+  flex-direction: column;
+  margin: 0 16px;
+  gap: 16px;
+}
+
+.services__paragraph {
+  height: 95px;
+  overflow: hidden;
+}
+
+.CPS-logo-photo {
+  max-width: max-content;
+}
+
+@include tablet {
+  .services__content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin: 0 40px 0 24px;
+    gap: 48px;
+  }
+
+  .services__text {
+    width: 50%;
+    margin: 0;
+  }
+
+  .CPS-logo-photo {
+    display: inline-block;
+    width: 50%;
+    border-radius: 6px;
+  }
+
+  .services__paragraph {
+    height: 151px;
+  }
+}
+
+@include desktop {
+  .services__content {
+    margin: 0 29px 0 34px;
+  }
+}

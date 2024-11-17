@@ -1,0 +1,113 @@
+@import './content.scss';
+@import './swiper.scss';
+
+.services {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.services__title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: $font-extra;
+}
+
+.services__title::before {
+  content: '';
+  background-color: #41f6d7;
+  width: 4px;
+  height: 40px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  margin-right: 12px;
+}
+
+.services__nav {
+  display: flex;
+  justify-content: space-between;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  list-style-type: none;
+  margin-left: 16px;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    rgb(255, 255, 255) 90%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    rgb(255, 255, 255) 90%,
+    transparent 100%
+  );
+}
+
+.services__button {
+  font-family: 'TT Lakes';
+  font-size: $font-main;
+  line-height: 24px;
+  letter-spacing: -0.2px;
+  text-align: left;
+
+  color: $gray;
+  text-wrap: nowrap;
+
+  align-self: center;
+  padding: 8px 16px;
+}
+
+.services__button_active {
+  background-color: #ffffff;
+  box-shadow: inset 0 0 0 2px $turquoise;
+  border-radius: 6px;
+}
+
+.services__button:hover {
+  color: $black;
+  transition: 0.1s;
+}
+
+@include tablet {
+  .services__title::before {
+    margin-right: 20px;
+  }
+
+  .services {
+    gap: 32px;
+  }
+
+  .services__nav {
+    padding-right: 30px;
+  }
+}
+
+@include desktop {
+  .services {
+    margin-top: -40px;
+    gap: 50px;
+  }
+
+  .services__title::before {
+    margin-right: 30px;
+  }
+
+  .services__nav {
+    margin: -42px 32px;
+    padding-right: 0;
+
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    overflow-x: hidden;
+
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+}

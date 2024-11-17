@@ -1,0 +1,184 @@
+@font-face {
+  font-family: 'TT Lakes';
+  font-weight: 400;
+  src: url(../fonts/TTLakes-Regular.woff);
+}
+
+@font-face {
+  font-family: 'TT Lakes';
+  font-weight: 600;
+  src: url(../fonts/TTLakes-Medium.woff);
+}
+
+@font-face {
+  font-family: 'TT Lakes';
+  font-weight: 800;
+  src: url(../fonts/TTLakes-Bold.woff);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+body {
+  position: relative;
+  font-family: 'TT Lakes';
+  font-weight: 400;
+  margin: 0;
+  background-color: #f8f8f8;
+  color: $black;
+}
+
+.btn--large {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-around;
+  padding: 4px 12px;
+  height: 32px;
+  border-radius: 16px;
+
+  font-family: 'TT Lakes';
+  font-weight: 800;
+  font-size: $font-small;
+  line-height: 24px;
+  letter-spacing: -0.15px;
+  text-transform: uppercase;
+
+  color: #ffffff;
+  background-color: $pink;
+}
+
+.btn--large svg {
+  transform: translateY(1px);
+}
+
+.btn--large:hover {
+  color: $pink;
+  background-color: #ffffff;
+  box-shadow: inset 0 0 0 2px $pink;
+  transition: 0.1s;
+}
+
+.btn--large:hover svg path {
+  fill: $pink;
+  transition: 0.1s;
+}
+
+/*кастомный чекбокс, читать далее-скрыть*/
+.checkbox_text-more {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.checkbox_text-more:checked ~ .services__paragraph {
+  height: auto;
+}
+
+.checkbox_text-more:checked ~ label .custom-checkbox_text-more {
+  display: none;
+}
+
+.checkbox_text-more:checked ~ label .custom-checkbox_text-less {
+  display: inline-block;
+}
+
+.custom-checkbox_text-more,
+.custom-checkbox_text-less,
+.swiper__show-all--brands,
+.swiper__hide--brands,
+.swiper__show-all--type,
+.swiper__hide--type {
+  display: inline-block;
+  padding-right: 5px;
+  border: 2px solid #f8f8f8;
+
+  cursor: pointer;
+
+  font-weight: 600;
+  font-size: $font-main;
+  line-height: 24px;
+  letter-spacing: -0.2px;
+}
+
+.custom-checkbox_text-less {
+  display: none;
+}
+
+.custom-checkbox_text-more::before,
+.custom-checkbox_text-less::before,
+.swiper__show-all--brands::before,
+.swiper__hide--brands::before,
+.swiper__show-all--type::before,
+.swiper__hide--type::before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+  width: 24px;
+  height: 24px;
+  background: url('../assets/expand.svg');
+}
+
+.custom-checkbox_text-less::before,
+.swiper__hide--brands::before,
+.swiper__hide--type::before {
+  transform: rotate(180deg);
+}
+
+.custom-checkbox_text-more:hover,
+.custom-checkbox_text-less:hover,
+.swiper__hide--brands:hover,
+.swiper__show-all--brands:hover,
+.swiper__show-all--type:hover,
+.swiper__hide--type:hover {
+  background-color: #ffffff;
+  box-shadow: inset 0 0 0 1px $turquoise;
+
+  border-radius: 6px;
+  z-index: 10px;
+  transition: 0.1s;
+}
+
+.services__subtitle {
+  display: flex;
+  box-sizing: border-box;
+  min-height: 56px;
+  padding: 16px;
+
+  font-weight: 400;
+  font-size: $font-main;
+  line-height: 24px;
+  letter-spacing: -0.2px;
+  text-transform: uppercase;
+
+  color: $gray;
+  background: linear-gradient(90deg, #f8f8f8 0%, #ffffff 98.61%);
+  border-top: 1px solid #d9fff5;
+}
+
+@include tablet {
+  .services__subtitle {
+    padding: 16px 24px;
+  }
+}
+
+@media screen and (min-width: 1120px) {
+  .services__subtitle {
+    padding: 16px 32px;
+  }
+}
+
+@include desktop {
+  .main,
+  .footer {
+    margin-left: 320px;
+  }
+}

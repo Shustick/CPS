@@ -1,0 +1,38 @@
+.footer {
+  display: grid;
+
+  gap: 16px;
+  box-sizing: border-box;
+  padding: 16px;
+  margin-top: 52px;
+
+  font-size: $font-middle;
+  line-height: 16px;
+  text-align: center;
+  color: $gray;
+
+  border-top: 1px solid #d9fff5;
+}
+
+@include tablet {
+  .footer {
+    grid-auto-flow: column;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+    padding: 32px 24px 24px 24px;
+  }
+
+  .footer__text1 {
+    text-align: start;
+  }
+
+  .footer__text3 {
+    text-align: end;
+  }
+}
+
+@include desktop {
+  .footer {
+    padding: 32px 32px 21px 32px;
+  }
+}

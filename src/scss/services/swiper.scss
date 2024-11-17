@@ -1,0 +1,399 @@
+.swiper {
+  width: 100%;
+
+  -webkit-mask-image: linear-gradient(
+    to right,
+    rgb(255, 255, 255) 90%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    rgb(255, 255, 255) 90%,
+    transparent 100%
+  );
+}
+
+.swiper-wrapper {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.swiper-slide {
+  display: flex;
+  width: 240px;
+  height: 72px;
+  padding: 16px;
+  box-sizing: border-box;
+
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: #ffffff;
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 1px #eaeaea;
+}
+
+.swiper__img {
+  max-width: 128px;
+  max-height: 44px;
+}
+
+.swiper__info-button {
+  display: inline-block;
+  padding: 14px 15.5px 14px 17px;
+  flex-shrink: 0;
+
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+
+  box-shadow: inset 0 0 0 2px $pink;
+}
+
+.swiper__info-button:hover {
+  background-color: $pink;
+  transition: 0.1s;
+}
+
+.swiper__info-button:hover svg path {
+  fill: #ffffff;
+  transition: 0.1s;
+}
+
+.swiper__checkbox--brands,
+.swiper__checkbox--type,
+.swiper__show-all-label--brands,
+.swiper__show-all-label--type {
+  display: none;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #b5b6bc;
+}
+
+.swiper-pagination {
+  transform: translateY(13px);
+}
+
+.swiper-pagination-bullet {
+  background-color: #dddddd;
+  width: 12px;
+  height: 12px;
+}
+
+.swiper--brands {
+  height: 116px;
+}
+
+.swiper--type {
+  height: 204px;
+  align-items: stretch;
+}
+
+.swiper__text {
+  align-self: flex-start;
+
+  font-weight: 600;
+  font-size: $font-main;
+  line-height: 24px;
+  letter-spacing: -0.2px;
+}
+
+.info-button--type {
+  align-self: flex-end;
+}
+
+.swiper-slide--type {
+  height: 160px;
+}
+
+.swiper--price {
+  height: 244px;
+  margin: 0;
+}
+
+.wrapper--price {
+  padding-left: 8px;
+}
+
+.swiper-slide--price {
+  height: 200px;
+  width: 260px;
+  display: grid;
+  row-gap: 16px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    'services services'
+    'price price'
+    'time button';
+}
+
+.swiper__services,
+.swiper__price,
+.swiper__time {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.swiper__services {
+  grid-area: services;
+}
+
+.swiper__price {
+  grid-area: price;
+}
+
+.swiper__time {
+  grid-area: time;
+}
+
+.swiper__text--light {
+  font-size: $font-middle;
+  line-height: 16px;
+  color: $gray;
+}
+
+.swiper__text--normal {
+  font-size: $font-middle;
+  line-height: 18px;
+  letter-spacing: 0.2px;
+}
+
+.swiper__order-button {
+  grid-area: button;
+  align-self: flex-end;
+  width: 119px;
+}
+
+.swiper__subtitle {
+  display: none;
+}
+
+.services__text--price {
+  max-width: 421px;
+  margin: 16px;
+
+  font-size: $font-middle;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+}
+
+.get-offer-button {
+  display: inline-block;
+  text-align: start;
+  vertical-align: middle;
+  width: 192px;
+  margin: 0 16px;
+
+  font-size: $font-main;
+  line-height: 24px;
+  letter-spacing: -0.2px;
+}
+
+.get-offer-button svg {
+  vertical-align: middle;
+  margin-left: 4px;
+}
+
+.get-offer-button:hover .get-offer-button__text {
+  transition: 0.1s;
+  box-shadow: 0 2px 0 0 $pink;
+}
+
+@media screen and (min-width: 420px) {
+  .get-offer-button {
+    width: 316px;
+  }
+}
+
+@include tablet {
+  .swiper {
+    -webkit-mask-image: unset;
+    mask-image: unset;
+    height: 100%;
+  }
+
+  .swiper-wrapper {
+    row-gap: 16px;
+    column-gap: 24px;
+    padding: 24px;
+    margin-bottom: 24px;
+
+    flex-wrap: wrap;
+  }
+
+  .swiper-slide {
+    width: 224px;
+  }
+
+  .swiper-slide--brands:nth-of-type(n + 7),
+  .swiper-slide--type:nth-of-type(n + 4) {
+    display: none;
+  }
+
+  /*кастомный чекбокс, показать все - скрыть*/
+  .swiper__checkbox--brands,
+  .swiper__checkbox--type {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  }
+
+  .swiper__checkbox--brands:checked ~ .swiper-slide--brands:nth-of-type(n + 7),
+  .swiper__checkbox--type:checked ~ .swiper-slide--type:nth-of-type(n + 4) {
+    display: flex;
+  }
+
+  .swiper__checkbox--brands:checked ~ label .swiper__show-all--brands,
+  .swiper__checkbox--type:checked ~ label .swiper__show-all--type {
+    display: none;
+  }
+
+  .swiper__checkbox--brands:checked ~ label .swiper__hide--brands,
+  .swiper__checkbox--type:checked ~ label .swiper__hide--type {
+    display: inline-block;
+  }
+
+  .swiper__hide--brands,
+  .swiper__hide--type {
+    display: none;
+  }
+
+  .swiper__show-all-label--brands {
+    position: absolute;
+    top: 98%;
+    display: inline-block;
+  }
+  .swiper__show-all-label--type {
+    position: absolute;
+    top: 98%;
+    display: inline-block;
+  }
+
+  .swiper__subtitle {
+    display: grid;
+    grid-template-columns: 3.6fr 1fr 1fr 1fr;
+    margin: 31px 24px 0 24px;
+    padding: 0 16px;
+  }
+
+  .wrapper--price {
+    width: auto;
+    padding: 0 16px;
+    margin: 16px 24px 0 24px;
+
+    flex-direction: column;
+    gap: 0;
+
+    background-color: #ffffff;
+    border-radius: 6px;
+  }
+
+  .swiper-slide--price {
+    height: 64px;
+    width: auto;
+    display: grid;
+    gap: 0;
+    padding: 0;
+
+    grid-template-columns: 3.6fr 1fr 1fr 1fr;
+    grid-template-areas: 'services price time button';
+
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .swiper-slide--price:not(:last-child)::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 63px;
+
+    width: 100%;
+    height: 1px;
+    background-color: #eaeaea;
+  }
+
+  .swiper__order-button {
+    align-self: center;
+  }
+
+  .swiper__text--hidden {
+    display: none;
+  }
+
+  .services__text--price {
+    margin: 24px;
+    margin-bottom: 16px;
+  }
+
+  .get-offer-button {
+    margin: 0 24px;
+  }
+}
+
+@media screen and (min-width: 1120px) {
+  .swiper-wrapper {
+    column-gap: 32px;
+    padding: 24px 32px;
+    margin-bottom: 24px;
+
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  .swiper-slide--brands,
+  .swiper-slide--type {
+    width: 240px;
+  }
+
+  .swiper-slide--brands:nth-of-type(n - 8),
+  .swiper-slide--type:nth-of-type(n - 4) {
+    display: flex;
+  }
+  .swiper-slide--brands:nth-of-type(n + 9),
+  .swiper-slide--type:nth-of-type(n + 5) {
+    display: none;
+  }
+
+  .wrapper--price {
+    padding: 0 24px;
+    margin: 16px 32px 0 32px;
+  }
+
+  .swiper__subtitle {
+    margin: 31px 32px 0 32px;
+    padding: 0 24px;
+  }
+
+  .services__text--price {
+    margin: 32px;
+    margin-bottom: 16px;
+  }
+
+  .get-offer-button {
+    margin: 0 32px;
+  }
+}
+
+@include desktop {
+  .swiper-slide--brands:nth-of-type(n + 7),
+  .swiper-slide--type:nth-of-type(n + 4) {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .swiper-slide--brands:nth-of-type(n - 8),
+  .swiper-slide--type:nth-of-type(n - 4) {
+    display: flex;
+  }
+
+  .swiper-slide--brands:nth-of-type(n + 9),
+  .swiper-slide--type:nth-of-type(n + 5) {
+    display: none;
+  }
+}
